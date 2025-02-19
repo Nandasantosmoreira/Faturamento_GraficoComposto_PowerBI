@@ -28,7 +28,7 @@ Para tornar essa solução possível, foi criada uma **tabela de calendário cus
 
 A tabela `dCalendarioCustomizada` foi criada para estruturar os diferentes níveis de agregação do tempo no gráfico.  
 
-```DAX
+
 dCalendarioCustomizada = 
 VAR _Meses = 
     SELECTCOLUMNS(
