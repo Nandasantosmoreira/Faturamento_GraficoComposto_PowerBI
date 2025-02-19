@@ -28,7 +28,7 @@ Para tornar essa solução possível, foi criada uma **tabela de calendário cus
 
 A tabela `dCalendarioCustomizada` foi criada para estruturar os diferentes níveis de agregação do tempo no gráfico.  
 
-
+```DAX
 dCalendarioCustomizada = 
 VAR _Meses = 
     SELECTCOLUMNS(
@@ -52,10 +52,10 @@ DISTINCT(
     )
 )
 
-### 📌 **2.Medidas DAX Criadas** 
 
+📌 2. Medidas DAX Criadas
+Faturamento dos Últimos 6 Meses
 
--> Faturamento dos Últimos 6 Meses
 Fat 6Meses = 
 VAR _MesCountAtual = SELECTEDVALUE(dCalendario[MesCount]) 
 VAR _Ultimos6Meses = 
@@ -74,7 +74,9 @@ CALCULATE(
     )
 )
 
--> Faturamento Diário do Mês Selecionado
+->Faturamento Diário do Mês Selecionado
+
+
 Fat Datas = 
 VAR _MesAtual = SELECTEDVALUE(dCalendario[MesNum]) 
 VAR _AnoAtual = SELECTEDVALUE(dCalendario[Ano]) 
@@ -93,7 +95,8 @@ CALCULATE(
     )
 )
 
--> Total do Faturamento do Mês
+->Total do Faturamento do Mês
+
 Fat Total Mês = 
 VAR _MesAtual = SELECTEDVALUE(dCalendario[MesNum]) 
 VAR _AnoAtual = SELECTEDVALUE(dCalendario[Ano]) 
@@ -117,13 +120,14 @@ IF(
     _FatDatas
 )
 
-🎯 **Destaque para a função TREATAS**
 
+🎯 Destaque para a função TREATAS
 A função TREATAS foi essencial para criar relacionamentos virtuais no modelo, garantindo que os cálculos respeitassem os períodos filtrados.
 
 Ela permite que uma tabela filtrada seja mapeada como um filtro em outra tabela, sem necessidade de criar relacionamentos físicos. Isso melhora a flexibilidade e otimiza o desempenho.
 
 Exemplo de uso no projeto:
+
 
 TREATAS(
     _DatasMesAtual, 
