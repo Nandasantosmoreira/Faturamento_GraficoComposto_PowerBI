@@ -1,4 +1,6 @@
 # 📊 Power BI - Gráfico Composto de Faturamento  
+![Captura de tela 2025-02-19 150119](https://github.com/user-attachments/assets/af91f1b2-1983-481f-9316-f71b5dc991b0)
+
 
 Este projeto apresenta uma solução avançada de visualização no Power BI, combinando **barras e linhas** para exibir o faturamento de maneira dinâmica e intuitiva.  
 
